@@ -5,29 +5,19 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Markdown from './Markdown';
 import { useEffect, useState } from 'react';
+import Post1 from './blog-post.1.md';
+import Post2 from './blog-post.2.md';
+import Post3 from './blog-post.3.md';
 
-
-function Main(props) {
-  const { posts, title } = props;
+export default function ComposantHome(props) {
   const [postContents, setPostContents] = useState([]);
 
   useEffect(() => {
-    //boucle de posts (url ressources) et recuperation du contenu
-    // par le bias de la fonction fetch 
-
-    let nextId = 0;
-
-    posts.map((post) => (
-
-      fetch(post)
-      .then( (response) => response.text())
-      .then( (text) => setPostContents([...postContents,{id:nextId++,text:text}]) ) 
-      .catch( (erreur) => console.log("requete echouée..."+erreur))
-      ))
-
+    Promise.all([fetch(Post1), fetch(Post2), fetch(Post3)])
+      .then((arrayResponse) => Promise.all(arrayResponse.map((response) => response.text())))
+      .then((arrayTexts) => setPostContents(arrayTexts))
+      .catch((error) => console.error('Error fetching posts:', error));
   }, []);
-
-
 
   return (
     <Grid
@@ -41,30 +31,20 @@ function Main(props) {
       }}
     >
       <Typography variant="h6" gutterBottom>
-        {title}
+        {props.title} {/* Utilisez props.title au lieu de title */}
       </Typography>
       <Divider />
-      
-      {/*boucle du contenu des posts pour la creation 
-      des composants Markdown */} 
-      
+
+      {/* Boucle sur le contenu des posts pour la création des composants Markdown */}
       {postContents.map((postContent) => (
-        <Markdown className="markdown" key={postContent.text.substring(0, 40)}>
-          {postContent.text}
+        <Markdown className="markdown" key={postContent.substring(0, 40)}>
+          {postContent}
         </Markdown>
       ))}
-      
-     
-
-
-
     </Grid>
   );
 }
 
-Main.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.string).isRequired,
-  title: PropTypes.string.isRequired,
+ComposantHome.propTypes = {
+  title: PropTypes.string.isRequired, // Définissez le type et assurez-vous de le recevoir en tant que prop
 };
-
-export default Main;

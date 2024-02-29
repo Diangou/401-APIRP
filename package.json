@@ -26,6 +26,9 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "plugins": [
+      "jsx-a11y"
     ]
   },
   "browserslist": {
@@ -41,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "react-router-dom": "^6.22.0"
   }
