@@ -12,7 +12,10 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import { sections } from './sectionArray'; // Importez la constante sections depuis sectionArray.js
+import post1 from './blog-post.1.md';
+import post2 from './blog-post.2.md';
+import post3 from './blog-post.3.md';
+import {sections} from './sectionsArray'
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
@@ -42,7 +45,7 @@ const featuredPosts = [
   },
 ];
 
-const posts = [/* post1, post2, post3 */]; // Assurez-vous d'importer vos fichiers de post correctement
+const posts = [post1, post2, post3];
 
 const sidebar = {
   title: 'About',
@@ -71,29 +74,13 @@ const sidebar = {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Blog() {
+export default function Travel() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
-        </main>
+        <Header title="Travel" sections={sections} />
+
       </Container>
       <Footer
         title="Footer"

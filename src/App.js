@@ -1,45 +1,33 @@
 import './App.css';
-import Blog from './blog/Blog'
+import Blog from './blog/Blog';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Technology from './blog/Technology';
-import Design from './blog/design';
-import Culture from './blog/culture';
-import Business from './blog/business';
-import Politics from './blog/politics';
-import Opinion from './blog/opinion';
-import Science from './blog/science';
-import Health from './blog/health';
-import Style from './blog/style';
-import Travel from './blog/Travel';
-
-
-
-
-
+import Accueil from './blog/Accueil'; // Correction ici
+import Forum from './blog/Forum'; // Correction ici
+import Activite from './blog/Activite'; // Correction ici
+import NousConnaitre from './blog/NousConnaitre'; // Correction ici
+import Adherer from './blog/Adherer'; // Correction ici
+import PromouvoirItalien from './blog/PromouvoirItalien'; // Correction ici
+import Apprendre from './blog/Apprendre'; // Correction ici
+import Enseigner from './blog/Enseigner'; // Correction ici
+import Divers from './blog/Divers'; // Correction ici
 
 function App() {
   return (
-
-<BrowserRouter>
+    <BrowserRouter>
       <Routes>
-       
-       <Route index element={<Blog/>}/>
-       <Route path="Technology" element={<Technology />} />
-       <Route path="Travel" element={<Travel />} />
-       <Route path="Design" element={<Design />} />
-       <Route path="Culture" element={<Culture />} />
-       <Route path="Business" element={<Business />} />
-       <Route path="Politics" element={<Politics />} />
-       <Route path="Opinion" element={<Opinion />} />
-       <Route path="Science" element={<Science />} />
-       <Route path="Health" element={<Health />} />
-       <Route path="Style" element={<Style />} />
-       <Route path="Travel" element={<Travel />} />
-  
-        
+        <Route index element={<Blog />} />
+        <Route path="/Accueil" element={<Accueil />} />
+        <Route path="/Forum" element={<Forum />} />
+        <Route path="/Activite" element={<Activite />} />
+        <Route path="/NousConnaitre" element={<NousConnaitre />} />
+        <Route path="/Adherer" element={<Adherer />} />
+        <Route path="/PromouvoirItalien" element={<PromouvoirItalien />} />
+        <Route path="/Apprendre" element={<Apprendre />} />
+        <Route path="/Enseigner" element={<Enseigner />} />
+        <Route path="/Divers" element={<Divers />} />
       </Routes>
     </BrowserRouter>
- );
+  );
 }
 
 export default App;

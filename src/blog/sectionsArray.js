@@ -1,17 +1,15 @@
 
 
 export const sections = [
-  { title: 'Home', url: '/' },
-  { title: 'Technology', url: 'Technology' },
-  { title: 'Design', url: 'Design' },
-  { title: 'Culture', url: 'Culture' },
-  { title: 'Business', url: 'Business' },
-  { title: 'Politics', url: 'Politics' },
-  { title: 'Opinion', url: 'Opinion' },
-  { title: 'Science', url: 'Science' },
-  { title: 'Health', url: 'Health' },
-  { title: 'Style', url: 'Style' },
-  { title: 'Travel', url: 'Travel' },
+  { title: 'Accueil', url: '/' },
+  { title: 'Forum des associations franco-italiennes', url: 'Forum' },
+  { title: 'Activités culturelles ', url: 'Activite' },
+  { title: 'Nous connaître', url: 'NousConnaitre' },
+  { title: 'Adhérer', url: 'Adherer' },
+  { title: 'Promouvoir l’italien', url: 'PromouvoirItalien' },
+  { title: 'Apprendre  ', url: 'Apprendre' },
+  { title: 'Enseigner', url: 'Enseigner' },
+  { title: 'Divers  ', url: 'Divers' },
 ];
 
 export const newArray = [1,2,3,4];
