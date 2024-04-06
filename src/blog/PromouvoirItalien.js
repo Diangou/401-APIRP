@@ -1,91 +1,88 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import XIcon from '@mui/icons-material/X';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
-import {sections} from './sectionsArray'
+import { sections } from './sectionsArray';
 
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
-
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-];
-
-const posts = [post1, post2, post3];
-
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'X', icon: XIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
-
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Opinion() {
+export default function PromouvoirItalien() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Opinion" sections={sections} />
+        <Header title="Promouvoir Italien" sections={sections} />
 
+        <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
+          La plaquette éditée par l'APIRP
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          L'APIRP a édité un dépliant pour la promotion de l'apprentissage de la langue italienne dans les établissements scolaires de l'Île-de-France.
+        </Typography>
+
+        <Container sx={{ my: 4 }}>
+          <img src="https://lh5.googleusercontent.com/ObzVNTz36YHOIOzyj6KrQMsrWQXUQ9171-sPH34ChnD8PKxbxMxyxWfkbXxBipsFarnhvQxQbO-JY5blqQapsw6Jl4WwduqU9CPPcjq_VJw=w1280" alt="Dépliant 1" style={{ width: '30%', marginBottom: '20px' }} />
+          <img src="https://lh6.googleusercontent.com/8-L5A4Ojs9Q9y0Qa154YfqJNdmkdtah9_1nRmRF7qJvcTov_6rc3q3DJcBPeboh0JZIgoUBYsIT3S8hy5vmFEn1en_isavcM5NeWFD2u9dY=w1280" alt="Dépliant 2" style={{ width: '30%' }} />
+
+          <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
+            Pour commander les dépliants
+          </Typography>
+          
+          <Typography variant="h6"  gutterBottom>
+            Si vous êtes adhérent
+          </Typography>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            sx={{ backgroundColor: '#006400', '&:hover': { backgroundColor: '#004d00' } }}
+            href="https://drive.google.com/file/d/0B34j4qalEtJsMGlEcmFFWlJmY1E/view?resourcekey=0-19mliwKeZAoPK9XBmNVPwg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Télécharger le formulaire pour les adhérents
+          </Button>
+
+          <Typography variant="h6"  gutterBottom style={{ marginTop: '20px' }}>
+            Si vous n'êtes pas adhérent
+          </Typography>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            sx={{ backgroundColor: '#006400', '&:hover': { backgroundColor: '#004d00' } }}
+            href="https://drive.google.com/file/d/0B34j4qalEtJsd2xZM3dxclI2UTg/view?resourcekey=0-AK-KZe_UzMKDFomtWhSyGA" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Télécharger le formulaire pour les non-adhérents
+          </Button>
+          <br />
+
+          <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
+            Réponses au Quizz de la plaquette
+          </Typography>
+          <Typography variant="body1" paragraph>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              sx={{ backgroundColor: '#006400', '&:hover': { backgroundColor: '#004d00' } }}
+              href="https://drive.google.com/file/d/0B34j4qalEtJsd2psVS1tN3plaFU/view?resourcekey=0-nlUxtG1Hf7kOX6BhtZuY2w" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Télécharger le quizz
+            </Button>
+          </Typography>
+        </Container>
+
+        <Footer
+          title="Footer"
+          description="Something here to give the footer a purpose!"
+        />
       </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
     </ThemeProvider>
   );
 }

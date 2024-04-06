@@ -12,7 +12,6 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import { sections } from './sectionArray'; // Importez la constante sections depuis sectionArray.js
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',

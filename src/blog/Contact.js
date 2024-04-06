@@ -4,82 +4,49 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import XIcon from '@mui/icons-material/X';
+import IconButton from '@mui/material/IconButton';  // Ajout de l'importation de IconButton
+import Typography from '@mui/material/Typography';  // Ajout de l'importation de Typography
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
-import {sections} from './sectionsArray'
+import { sections } from './sectionsArray';
 
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
-
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-];
-
-const posts = [post1, post2, post3];
-
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'X', icon: XIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
-
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Travel() {
+export default function Contact() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Travel" sections={sections} />
+        <Header title="Nous contacter" sections={sections} />
+
+        <Container sx={{ my: 4 }}>
+          <Grid container spacing={5}>
+            <Grid item xs={12} md={8}>
+
+            <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
+                Informations
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Pour nous signaler tout changement de coordonnées personnelles (adresse de domicile, téléphone, courriel) ou professionnelles (changement d’établissement de rattachement, de statut, etc.), merci d’envoyer un courriel à : <a href="mailto:apirp.association@gmail.com">apirp.association@gmail.com</a>.
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Pour les renouvellements d’adhésion et pour les commandes de plaquettes pour la promotion de l’italien, nos adhérents peuvent aussi se servir des formulaires publiés dans les deux dernières pages de notre bulletin annuel.
+              </Typography>
+
+              <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
+                Social Media
+              </Typography>
+              <Grid container spacing={1}>
+                <Grid item>
+                  <IconButton aria-label="Facebook" href="https://m.facebook.com/APIRP" target="_blank">
+                    <FacebookIcon />
+                  </IconButton>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
 
       </Container>
       <Footer

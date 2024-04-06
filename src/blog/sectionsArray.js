@@ -1,7 +1,5 @@
-
-
 export const sections = [
-  { title: 'Accueil', url: '/' },
+  { title: 'Accueil', url: '' },
   { title: 'Forum des associations franco-italiennes', url: 'Forum' },
   { title: 'Activités culturelles ', url: 'Activite' },
   { title: 'Nous connaître', url: 'NousConnaitre' },
@@ -11,5 +9,3 @@ export const sections = [
   { title: 'Enseigner', url: 'Enseigner' },
   { title: 'Divers  ', url: 'Divers' },
 ];
-
-export const newArray = [1,2,3,4];

@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link as RouterLink } from 'react-router-dom';
 
 function Header(props) {
   const { sections, title } = props;
@@ -28,8 +28,14 @@ function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
+        <Button 
+          variant="outlined" 
+          size="small"
+          component={RouterLink}  // Utilisation de RouterLink au lieu de 'a'
+          to="/contact"  // Redirection vers la page Contact.js
+          sx={{ borderColor: '#006400', color: '#006400', '&:hover': { borderColor: '#004d00', color: '#004d00' } }}
+        >
+          Nous Contacter
         </Button>
       </Toolbar>
       <Toolbar
@@ -43,7 +49,8 @@ function Header(props) {
             noWrap
             key={section.title}
             variant="body2"
-            href={section.url}
+            component={RouterLink}  // Utilisation de RouterLink au lieu de 'a'
+            to={`/${section.url}`}  // Utilisation d'un chemin absolu
             sx={{ p: 1, flexShrink: 0 }}
           >
             {section.title}
@@ -65,4 +72,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
