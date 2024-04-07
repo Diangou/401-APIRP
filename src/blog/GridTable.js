@@ -1,69 +1,56 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
+import Button from '@mui/material/Button';
 
 const columns = [
-{  
-    field: 'id', 
-    headerName: 'ID',
-    width: 40
-  },
-  { 
-    field: 'time', 
-    headerName: 'Time',
-    width: 150 
-  },
-  {
-    field: 'wind_speed_10m',
-    headerName: 'Wind Speed',
-    width: 90
-  },
-  {
-    field: 'temperature_2m',
-    headerName: 'Temperature',
-    width: 90
-  },
-  {
-    field: 'relative_humidity_2m',
-    headerName:  'Relative Humidity',
-    width: 90
-  }
+  { field: 'id', headerName: 'ID', width: 40 },
+  { field: 'name', headerName: 'File Name', width: 150 },
+  { field: 'download', headerName: 'Download', width: 150, renderCell: (params) => <FileDownloadButton file={params.row.file} /> },
 ];
 
-const rows = [
-  { id: 1, time: 1, wind_speed_10m: 'Snow', temperature_2m: 'Jon', relative_humidity_2m: 14 }
-];
+// eslint-disable-next-line
+function handleUpload() {
+  // Votre logique de téléchargement de fichier ici
+}
 
+function FileDownloadButton({ file }) {
+  const handleDownload = () => {
+    const url = URL.createObjectURL(file);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = file.name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-function GridTable(props) {
+  return (
+    <Button variant="outlined" onClick={handleDownload}>
+      Download
+    </Button>
+  );
+}
 
-    const { resultsJSON } = props;
-   
-    //Implementer la recuperation des données ...
-    //parsing results et creation entrée du tableau
-
-
-
+function GridTable({ uploadedFiles }) {
+  const rows = uploadedFiles.map((file, index) => ({
+    id: index + 1,
+    file,
+    name: file.name // Ajout du nom du fichier dans les données de chaque ligne
+  }));
 
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        columnVisibilityModel = {{id: false}}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
-            },
-          },
-        }}
-        pageSizeOptions={[5]}
+        columnVisibilityModel={{ id: false }}
+        pageSize={5}
         checkboxSelection
-        disableRowSelectionOnClick
+        disableSelectionOnClick
       />
     </Box>
   );
-};
+}
 
 export default GridTable;
