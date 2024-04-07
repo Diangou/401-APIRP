@@ -10,6 +10,13 @@ import Footer from './Footer';
 import {sections} from './sectionsArray'
 import GridTable from './GridTable';
 import { useEffect, useState } from 'react';
+import MainFeaturedPost from './MainFeaturedPost';
+
+const mainFeaturedPost = {
+  title: 'Contact',
+  image: 'https://previews.123rf.com/images/booblgum/booblgum1611/booblgum161100150/66178681-italy-skyline-with-landmarks-and-reflections-vector-illustration-business-travel-and-tourism-concept.jpg',
+  imageText: 'main image description',
+}
 
 
 
@@ -41,13 +48,14 @@ export default function Technology() {
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
+        <MainFeaturedPost post={mainFeaturedPost} />
             <p> Technology page </p>
             <GridTable results = {responseMeteo}/>
         </main>
       </Container>
       <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
+        title="Association des Professeurs d'Italien de la Région Parisienne"
+        description="apirp.association@gmail.com"
       />
     </ThemeProvider>
   );

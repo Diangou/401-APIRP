@@ -6,6 +6,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import Footer from './Footer';
 import { sections } from './sectionsArray';
+import MainFeaturedPost from './MainFeaturedPost';
+
+const mainFeaturedPost = {
+  title: 'Nous Connaître',
+  image: 'https://previews.123rf.com/images/booblgum/booblgum1611/booblgum161100150/66178681-italy-skyline-with-landmarks-and-reflections-vector-illustration-business-travel-and-tourism-concept.jpg',
+  imageText: 'main image description',
+};
 
 const defaultTheme = createTheme();
 
@@ -15,6 +22,8 @@ export default function AboutUs() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Nous connaître" sections={sections} />
+
+        <MainFeaturedPost post={mainFeaturedPost} />
 
         <Container sx={{ my: 4 }}>
 
@@ -142,8 +151,8 @@ export default function AboutUs() {
         </Container>
 
         <Footer
-          title="Footer"
-          description="Something here to give the footer a purpose!"
+          title="Association des Professeurs d'Italien de la Région Parisienne"
+          description="apirp.association@gmail.com"
         />
       </Container>
     </ThemeProvider>

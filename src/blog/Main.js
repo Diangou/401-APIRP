@@ -13,7 +13,7 @@ export default function ComposantHome(props) {
   const [postContents, setPostContents] = useState([]);
 
   useEffect(() => {
-    Promise.all([fetch(Post1), fetch(Post2), fetch(Post3)])
+    Promise.all([fetch(Post1)])
       .then((arrayResponse) => Promise.all(arrayResponse.map((response) => response.text())))
       .then((arrayTexts) => setPostContents(arrayTexts))
       .catch((error) => console.error('Error fetching posts:', error));

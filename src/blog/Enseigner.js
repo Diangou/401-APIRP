@@ -7,6 +7,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import Footer from './Footer';
 import { sections } from './sectionsArray';
+import MainFeaturedPost from './MainFeaturedPost';
+
+const mainFeaturedPost = {
+  title: 'Enseigner',
+  image: 'https://previews.123rf.com/images/booblgum/booblgum1611/booblgum161100150/66178681-italy-skyline-with-landmarks-and-reflections-vector-illustration-business-travel-and-tourism-concept.jpg',
+  imageText: 'main image description',
+}
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -19,6 +26,7 @@ export default function Enseigner() {
         <Header title="Enseigner" sections={sections} />
 
         <main>
+        <MainFeaturedPost post={mainFeaturedPost} />
           <Container>
             <Typography variant="h4" gutterBottom sx={{ color: '#006400' }}>
               BAC d'Italien - Sujets juin 2018
@@ -95,8 +103,8 @@ export default function Enseigner() {
         </main>
       </Container>
       <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
+        title="Association des Professeurs d'Italien de la Région Parisienne"
+        description="apirp.association@gmail.com"
       />
     </ThemeProvider>
   );

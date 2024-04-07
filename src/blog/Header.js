@@ -14,7 +14,8 @@ function Header(props) {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
+      <img src="https://www.associazioni-italiane.org/wp-content/uploads/2019/10/1-logo-apirp_scritta_ridotto.jpg" alt="Logo" width="50" height="50"/>
+
         <Typography
           component="h2"
           variant="h5"
@@ -25,9 +26,7 @@ function Header(props) {
         >
           {title}
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
+        
         <Button 
           variant="outlined" 
           size="small"
